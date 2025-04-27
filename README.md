@@ -23,7 +23,6 @@ SENDER_PASSWORD=your_gmail_app_password
 RECEIVER_EMAIL=receiver_email@example.com
 ```
 
-> **Lưu ý:** Không được push file `.env` chứa thông tin nhạy cảm này lên GitHub.
 
 ### 3. Cài đặt thư viện cần thiết
 
@@ -55,6 +54,7 @@ backup_database/
 │──  baitap.py          # File Python thực hiện backup và gửi mail
 ├── .gitignore             # File cấu hình loại trừ khi push Git
 ├── requirements.txt       # Danh sách thư viện cần cài
+├── .env                    # file chứa SENDER_EMAIL,SENDER_PASSWORD,RECEIVE_EMAILEMAIL
 └── README.md              # Tài liệu hướng dẫn (file này)
 ```
 
