@@ -98,7 +98,7 @@ __pycache__/
 
 ##  Tác giả
 
-**Ngô Dương Nhân** - DAU University
+**Ngô Đức Nhân** - DAU University
 
 ---
 
