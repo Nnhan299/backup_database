@@ -1,0 +1,33 @@
+import sqlite3
+import os
+
+# Tạo thư mục databases nếu chưa có
+os.makedirs("databases", exist_ok=True)
+
+# Kết nối tới file databases/sample_data.sqlite3
+conn = sqlite3.connect("databases/sample_data.sqlite3")
+cursor = conn.cursor()
+
+# Tạo bảng
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+""")
+
+# Thêm dữ liệu mẫu
+cursor.executemany("""
+INSERT INTO users (name, email) VALUES (?, ?)
+""", [
+    ("Alice", "alice@example.com"),
+    ("Bob", "bob@example.com"),
+    ("Charlie", "charlie@example.com")
+])
+
+conn.commit()
+conn.close()
+
+print("✅ Tạo file sample_data.sqlite3 thành công!")
